@@ -9,9 +9,9 @@ print("====================") # TODO, add or remove equal symbol to align the gr
 name = "Tester"
 
 player = {
-    "Name": name,
-    "Health": 100,
-    "Coin": 0,
+    "name": name,
+    "health": 100,
+    "coin": 0,
     "x": 0,
     "y": 0
 }
@@ -26,11 +26,11 @@ def check_event():
 
 
     if event == "find a coin":
-        player["Coin"] = player["Coin"] + 1
+        player["coin"] = player["coin"] + 1
     
 
     elif event == "meet a monster":
-        player["Health"] = player["Health"] - 10
+        player["health"] = player["health"] - 10
 
 def draw_ui(x, y):
     for i in range(map_size):
@@ -43,19 +43,19 @@ def draw_ui(x, y):
                 print(".", end = "  ")
         print()
     print()
-    print(f"Health: {player['Health']}")
-    print(f"Coin: {player['Coin']}")
+    print(f"health: {player['health']}")
+    print(f"coin: {player["coin"]}")
     print()
 
 def move(direction):
     if direction == 'w' and player['y'] > 0:
         player["y"] -= 1
-    elif direction == 's' and player['y'] < map_size - 1:
-        player["y"] += 1
+    elif direction == 's' and player['x'] < map_size - 1:
+        player["x"] += 1
     elif direction == 'a' and player['x'] > 0:
         player["x"] -= 1
-    elif direction == 'd' and player['x'] < map_size - 1:
-        player["x"] += 1
+    elif direction == 'd' and player['y'] < map_size - 1:
+        player["y"] += 1
     else:
         print("You cannot move that way!")
 
