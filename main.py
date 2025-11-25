@@ -3,7 +3,7 @@ import random
 
 game_name = "Escaping"
 print(f"Welcome to {game_name}!")  # TODO, print greetings with game name
-print("====================") # TODO, add or remove equal symbol to align the greetings
+print("=========================") # TODO, add or remove equal symbol to align the greetings
 
 # Ask for the character's name
 name = "Tester"
@@ -44,8 +44,9 @@ def draw_ui(x, y):
         print()
     print()
     print(f"health: {player['health']}")
+    print("-------------------------")
     print(f"coin: {player["coin"]}")
-    print()
+    print("=========================")
 
 def move(direction):
     if direction == 'w' and player['y'] > 0:
