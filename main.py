@@ -9,9 +9,9 @@ print("=========================") # TODO, add or remove equal symbol to align t
 name = "Tester"
 
 player = {
-    "name": name,
-    "health": 100,
-    "coin": 0,
+    "Name": name,
+    "Health": 100,
+    "Coin": 0,
     "x": 0,
     "y": 0
 }
@@ -26,11 +26,11 @@ def check_event():
 
 
     if event == "find a coin":
-        player["coin"] = player["coin"] + 1
+        player["Coin"] = player["Coin"] + 1
     
 
     elif event == "meet a monster":
-        player["health"] = player["health"] - 10
+        player["Health"] = player["Health"] - 10
 
 def draw_ui(x, y):
     for i in range(map_size):
@@ -43,9 +43,9 @@ def draw_ui(x, y):
                 print(".", end = "  ")
         print()
     print()
-    print(f"health: {player['health']}")
+    print(f"Health: {player['Health']}")
     print("-------------------------")
-    print(f"coin: {player["coin"]}")
+    print(f"Coin: {player["Coin"]}")
     print("=========================")
 
 def move(direction):
@@ -62,7 +62,7 @@ def move(direction):
 
 def main():
     draw_ui(0, 0)
-    direction = input("Your next move (w/a/s/d/q)")
+    direction = input("Your next move (w/a/s/d/q):")
     while direction != 'q':
         move(direction)
         if player['x'] == map_size - 1 and player['y'] == map_size - 1:
