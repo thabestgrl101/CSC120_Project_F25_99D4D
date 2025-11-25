@@ -72,7 +72,7 @@ def main():
         check_event()
 
         draw_ui(player['x'], player['y'])
-        direction = input("Your next move (w/a/s/d/q)")
+        direction = input("Your next move (w/a/s/d/q):")
 
 if __name__ == '__main__':
     main()
