@@ -1,28 +1,28 @@
 import random
 
 class Player:
-    def __init__(self):
-        self.name = "Tester"
+    def __init__(self, name=input()):
+        self.name = name
         self.health = 100
         self.coin = 0
         self.x = 0
         self.y = 0
     
     def move(self, direction, map_size):
-        if direction == 'w' and self.y > 0:
-            self.y -= 1
+        if direction == 'w' and self.x > 0:
+            self.x -= 1
         elif direction == 's' and self.x < map_size - 1:
             self.x += 1
-        elif direction == 'a' and self.x > 0:
-            self.x -= 1
+        elif direction == 'a' and self.y > 0:
+            self.y -= 1
         elif direction == 'd' and self.y < map_size - 1:
             self.y += 1
         else:
             print("You cannot move that way!")
 
 class GameMap:
-    def __init__(self):
-        self.size = 9
+    def __init__(self, size=9):
+        self.size = size
     
     def draw(self, player):
         for i in range(self.size):
@@ -45,6 +45,7 @@ class Game:
         self.player = Player()
         self.map = GameMap()
         self.events = ["find a coin", "meet a monster", "do nothing"]
+        self.map_size = self.map.size
     
     def check_event(self):
         event = random.choice(self.events)
@@ -61,7 +62,7 @@ class Game:
             if self.player.x == self.map.size - 1 and self.player.y == self.map.size -1:
                 print("Congratulations! You reached the monster and won the game!")
                 break
-            self.check.event()
+            self.check_event()
             self.map.draw(self.player)
             direction = input("Your next move (w/a/s/d/q):")
 
